@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    
+    <title>Vocabulario</title>
+</head>
+<body>
+
+    <div class="row display-flex">
+        {% for palavra in vocab %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                {# <a href="/{{palavra.id}}/"> #}
+                    <div class="vocabulario panel panel-default">
+                         <div class="panel-heading text-center">
+                            {% if palavra.art %}   
+      
+                                    <button id="der_id" data-id="{{palavra.id}}" class="btn btn-basic pull-left  {% if palavra.art_chosen == 'der' %} btn-success {% endif %}" type="button">Der</button>
+                                    <button id="die_id" data-id="{{palavra.id}}" class="btn btn-basic {% if palavra.art_chosen == 'die' %} btn-success {% endif %}">Die</button>
+                                    <button id="das_id" data-id="{{palavra.id}}" class="btn btn-basic pull-right {% if palavra.art_chosen == 'das' %} btn-success {% endif %}">Das</button>
+
+                            {% else %}
+
+                                <button id="show_mean" data-id="{{palavra.id}}" class="btn btn-basic {% if palavra.art_chosen == 'fake' %} btn-info {% endif %}">Show Mean</button>
+
+                            {% endif %}
+                        </div>
+                        <div class="panel-heading">
+                             <h2 class="panel-title"><span id="artigo" data-id="{{palavra.id}}" class="{% if palavra.art_chosen == 'wro' or palavra.art_chosen == '' %} invisible {% endif %}"> {{ palavra.art }} </span> {{ palavra.word }}</h2>
+                        </div>
+                        <div class="panel-body" data-id="{{palavra.id}}">
+                            <span id="mean" data-id="{{palavra.id}}" class="{% if palavra.art_chosen == 'wro' or palavra.art_chosen == '' %} invisible {% endif %}">
+                                {{ palavra.mean }}
+                            </span>
+                        </div>
+                        <div class="panel-footer">  
+                            <div id="correct_count"  data-id="{{palavra.id}}" class="glyphicon glyphicon-ok">
+                                {% if palavra.art_right > 0 %} {{palavra.art_right}} {% endif %}
+                            </div>    
+
+                            <div id="wrong_count" data-id="{{palavra.id}}" class="glyphicon glyphicon-remove navbar-right">
+                                {% if palavra.art_wrong > 0 %} {{palavra.art_wrong}} {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+               {# </a> #}
+            </div>
+
+        {% endfor %}
+    </div>
+</body>
