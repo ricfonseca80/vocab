@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', SECRET_KEY_LOC)
 # DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['vocabricfon80.herokuapp.com']
+ALLOWED_HOSTS = ['vocabricfon80.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
