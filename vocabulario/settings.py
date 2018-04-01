@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', SECRET_KEY_LOC)
 # DEBUG = True
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['vocabricfon80.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['vocabricfon80.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -82,10 +82,21 @@ WSGI_APPLICATION = 'vocabulario.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vocab',
+        'USER': 'postgres',
+        'PASSWORD': 'cenijor23',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

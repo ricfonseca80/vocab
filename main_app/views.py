@@ -65,7 +65,7 @@ def guess_art(request):
     if(palavra_id):
         palavra = Palavra.objects.get(id=int(palavra_id))
         if palavra:
-            if palavra.art != '':
+            if palavra.art != 'Null':
                 resp_dict["has_article"] = True
                 if palavra.art.lower() == art_pressed.lower():
                     art_right = palavra.art_right + 1

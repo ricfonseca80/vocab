@@ -1,4 +1,4 @@
-$('body').on('click', 'button', function(event){
+    $('body').on('click', 'button', function(event){
     event.preventDefault();
     var element = $(this)
 

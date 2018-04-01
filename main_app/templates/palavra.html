@@ -29,10 +29,10 @@
                             {% endif %}
                         </div>
                         <div class="panel-heading">
-                             <h2 class="panel-title"><span id="artigo" data-id="{{palavra.id}}" class="{% if palavra.art_chosen == 'wro' or palavra.art_chosen == '' %} invisible {% endif %}"> {{ palavra.art }} </span> {{ palavra.word }}</h2>
+                             <h2 class="panel-title"><span id="artigo" data-id="{{palavra.id}}" class="{% if palavra.art_chosen == 'wro' or palavra.art_chosen == Null %} invisible {% endif %}"> {{ palavra.art }} </span> {{ palavra.word }}</h2>
                         </div>
                         <div class="panel-body" data-id="{{palavra.id}}">
-                            <span id="mean" data-id="{{palavra.id}}" class="{% if palavra.art_chosen == 'wro' or palavra.art_chosen == '' %} invisible {% endif %}">
+                            <span id="mean" data-id="{{palavra.id}}" class="{% if palavra.art_chosen == 'wro' or palavra.art_chosen == Null %} invisible {% endif %}">
                                 {{ palavra.mean }}
                             </span>
                         </div>

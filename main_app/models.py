@@ -5,9 +5,9 @@ from django.db import models
 
 class Palavra(models.Model):
     art = models.CharField(max_length=3, blank=True)
-    word = models.CharField(max_length=100)
+    word = models.CharField(max_length=200)
     categ = models.CharField(max_length=100, blank=True, default='missing')
-    mean = models.CharField(max_length=100)
+    mean = models.CharField(max_length=200)
 
     art_right = models.IntegerField(default=0, blank=True)
     art_wrong = models.IntegerField(default=0, blank=True)
